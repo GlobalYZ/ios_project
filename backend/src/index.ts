@@ -1,6 +1,6 @@
 // src/index.ts
 import fastify from "fastify";
-// import { analyzeAllChats } from "./services/openai";
+import { analyzeAllChats } from "./services/openai";
 
 const app = fastify();
 
@@ -9,10 +9,10 @@ app.get("/", async () => {
 });
 
 // test driver for openai services
-// setTimeout(async () => {
-//   const result = await analyzeAllChats();
-//   console.log(result);
-// }, 1000);
+setTimeout(async () => {
+  const result = await analyzeAllChats();
+  console.log(result);
+}, 1000);
 
 const start = async () => {
   try {
