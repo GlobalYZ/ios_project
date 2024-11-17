@@ -11,3 +11,31 @@ yarn start
 
 ##### use this command install new dependencies
 yarn add <package_name>
+
+
+### API documentation
+
+##### register a user
+route: /api/auth/register
+method: POST
+body: {
+    email: string,
+    password: string,
+    name: string
+}
+
+![alt text](image.png)
+
+##### login
+route: /api/auth/login
+method: POST
+body: {
+    email: string,
+    password: string
+}
+
+![alt text](image-1.png)
+
+
+
+

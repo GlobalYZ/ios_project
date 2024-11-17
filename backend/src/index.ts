@@ -1,6 +1,9 @@
 // src/index.ts
-import fastify, { FastifyInstance } from "fastify";
+import fastify, { FastifyInstance, FastifyRequest } from "fastify";
 import { authRoutes } from "./routes/auth";
+import { friendRoutes } from "./routes/friend";
+import jwt from "jsonwebtoken";
+import { JWTPayload } from "./models/server";
 
 const server: FastifyInstance = fastify({
   logger: {
@@ -30,6 +33,32 @@ server.register(authRoutes, { prefix: "/api" }); // add api prefix
 server.get("/", async () => {
   return { status: "ok", message: "server is running" };
 });
+
+const verifyToken = async (request: FastifyRequest) => {
+  try {
+    const token = request.headers.authorization?.replace("Bearer ", "");
+
+    if (!token) {
+      throw new Error("no JWT token provided");
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JWTPayload;
+
+    // check if the token is expired
+    if (Date.now() >= decoded.exp * 1000) {
+      throw new Error("JWT token expired");
+    }
+
+    return decoded;
+  } catch (error) {
+    throw new Error("invalid JWT token");
+  }
+};
+
+//token verification middleware, all routes registered after this middleware will be protected
+server.addHook("preHandler", verifyToken);
+
+server.register(friendRoutes, { prefix: "/api" });
 
 const start = async () => {
   try {
