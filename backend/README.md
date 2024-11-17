@@ -36,6 +36,22 @@ body: {
 
 ![alt text](image-1.png)
 
+#### Routes below requires a authorization header and a valid JWT token!
+![alt text](image-3.png)
+
+##### add a friend
+route: /api/friend/add
+method: POST
+body: {
+    userId: string,
+    friendId: string
+}
+![alt text](image-2.png)
+
+##### get friends
+route: /api/friend/:userId
+method: GET
+params: userId
 
 
 

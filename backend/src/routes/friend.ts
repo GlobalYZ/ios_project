@@ -22,4 +22,18 @@ export async function friendRoutes(fastify: FastifyInstance) {
       }
     }
   );
+
+  fastify.get<{ Params: { userId: string } }>(
+    "/friend/:userId",
+    async (request, reply) => {
+      try {
+        const response = await axios.get(
+          process.env.DB_API_URL + `api/friend/${request.params.userId}`
+        );
+        return response.data;
+      } catch (error) {
+        errorHandler(error, reply);
+      }
+    }
+  );
 }
