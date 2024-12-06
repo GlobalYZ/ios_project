@@ -14,12 +14,12 @@ struct ButtonView: View {
         Text(title)
             .bold()
             .frame(maxWidth: .infinity, maxHeight: 50)
-            .background(Color.white)
-            .foregroundColor(.gray)
+            .background(Color.LIGHTBACKGROUND)
+            .foregroundColor(Color.ICON)
             .cornerRadius(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.gray, lineWidth: 2)
+                    .stroke(Color.BUTTONFILLED, lineWidth: 2)
             )
     }
 }

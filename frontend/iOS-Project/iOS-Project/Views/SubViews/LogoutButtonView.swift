@@ -19,7 +19,7 @@ struct LogoutButtonView: View {
             Text("Logout")
                 .bold()
                 .frame(maxWidth: .infinity, maxHeight: 50)
-                .background(Color.red)
+                .background(Color.LOGOUT)
                 .foregroundColor(.white)
                 .cornerRadius(10)
                 .padding(.horizontal)

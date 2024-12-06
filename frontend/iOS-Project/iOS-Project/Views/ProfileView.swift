@@ -27,7 +27,7 @@ struct ProfileView: View {
                             title: "\(user.name)",
                             subtitle: "\(user.email)",
                             angle: -30,
-                            backColor: .blue,
+                            backColor: Color.BACKGROUND,
                             image: "logo"
                         )
                     }

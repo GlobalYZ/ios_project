@@ -17,21 +17,21 @@ struct LoginView: View {
                     title: "Login",
                     subtitle: "Access your account",
                     angle: 30,
-                    backColor: .blue,
+                    backColor: Color.BACKGROUND,
                     image: "facelook-white"
                 )
 
                 // Form
                 ZStack {
                     RoundedRectangle(cornerRadius: 15)
-                        .fill(Color(UIColor.systemGray6))
+                        .fill(Color.LIGHTBACKGROUND)
                         .frame(maxWidth: 350, maxHeight: 250)
                         .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 3)
 
                     VStack(alignment: .leading, spacing: 15) {
                         if !viewModel.errorMessage.isEmpty {
                             Text(viewModel.errorMessage)
-                                .foregroundColor(.red)
+                                .foregroundColor(Color.LOGOUT)
                         }
                         
                         // Email input
@@ -58,13 +58,13 @@ struct LoginView: View {
                         // Sign-up
                         HStack {
                             Text("Don't have an account?")
-                                .foregroundColor(.gray)
+                                .foregroundColor(.black)
                             
                             NavigationLink(destination: SignUpView(onSignUpSuccess: { userID, userName, email in
                                 print("Sign Up successful! User ID: \(userID), User Name: \(userName), Email: \(email)")
                             })) {
                                 Text("Sign Up")
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(Color.BLUE)
                                     .fontWeight(.bold)
                             }
                         }

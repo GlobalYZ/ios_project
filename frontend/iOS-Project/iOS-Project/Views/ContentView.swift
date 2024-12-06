@@ -27,7 +27,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("Leaderboard", systemImage: "chart.bar")
                     }
-            }
+            }.accentColor(Color.ICON)
             .onAppear {
                 viewModel.checkLoginStatus()
             }

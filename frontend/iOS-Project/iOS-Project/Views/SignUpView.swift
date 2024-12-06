@@ -19,21 +19,21 @@ struct SignUpView: View {
                 title: "Register",
                 subtitle: "Sign up, Today!",
                 angle: 30,
-                backColor: .blue,
+                backColor: .BACKGROUND,
                 image: "facelook-white"
             )
             
             ZStack {
                 // Background RoundedRectangle
                 RoundedRectangle(cornerRadius: 15)
-                    .fill(Color(UIColor.systemGray6))
+                    .fill(Color.LIGHTBACKGROUND)
                     .frame(maxWidth: 350, maxHeight: 300)
                     .shadow(color: .gray.opacity(0.4), radius: 5, x: 0, y: 3)
 
                 VStack(alignment: .leading, spacing: 15) {
                     if !viewModel.errorMessage.isEmpty {
                         Text(viewModel.errorMessage)
-                            .foregroundColor(.red)
+                            .foregroundColor(.LOGOUT)
                     }
                     
                     // Email input
@@ -68,13 +68,13 @@ struct SignUpView: View {
                     // Login
                     HStack {
                         Text("Already have an account?")
-                            .foregroundColor(.gray)
+                            .foregroundColor(.black)
                         
                         NavigationLink(destination: LoginView(onLoginSuccess: { userID, userName in
                             print("Login successful! User ID: \(userID), User Name: \(userName)")
                             })) {
                             Text("Login")
-                                .foregroundColor(.blue)
+                                .foregroundColor(.BLUE)
                                 .fontWeight(.bold)
                         }
                     }

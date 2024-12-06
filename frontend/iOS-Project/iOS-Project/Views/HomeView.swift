@@ -25,7 +25,7 @@ struct HomeView: View {
                     title: "Search",
                     subtitle: "Find your groups",
                     angle: 0,
-                    backColor: .blue,
+                    backColor: Color.BACKGROUND,
                     image: "logo"
                 )
                 SearchView()
@@ -61,7 +61,7 @@ struct HomeView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: 200)
-                        .background(Color.white)
+                .background(Color.BUTTONFILLED)
                         .cornerRadius(10)
                         .shadow(radius: 2)
                         .padding(.horizontal, 16)
@@ -84,6 +84,7 @@ struct HomeView: View {
                         }
                         .padding()
                         .buttonStyle(.borderedProminent)
+                        
                     }
                     .padding()
                 }
